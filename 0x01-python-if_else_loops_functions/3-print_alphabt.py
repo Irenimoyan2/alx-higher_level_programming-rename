@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-for i in range(ord('a'), ord('z')+1):
-    if chr(i) not in ['e', 'q']:
-        print(chr(i), end='')
-
+for letter_code in range(97, 123):
+    if chr(letter_code) not in ['e', 'q']:
+        print("{}".format(chr(letter_code)), end="")
