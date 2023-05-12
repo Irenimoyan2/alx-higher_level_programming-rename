@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-# main.py
 
+def add(a, b):
 from add_0 import add
-
 a = 1
 b = 2
 
