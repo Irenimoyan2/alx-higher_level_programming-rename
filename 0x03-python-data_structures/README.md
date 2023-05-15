@@ -1,5 +1,5 @@
 0. Print a list of integers
-mandatory
+
 Write a function that prints all integers of a list.
 
 Prototype: def print_list_integer(my_list=[]):
@@ -11,7 +11,7 @@ You have to use str.format() to print integers
 
 
 1. Secure access to an element in a list
-mandatory
+
 Write a function that retrieves an element from a list like in C.
 
 Prototype: def element_at(my_list, idx):
@@ -22,7 +22,7 @@ You are not allowed to use try/except
 
 
 2. Replace element
-mandatory
+
 Write a function that replaces an element of a list at a specific position (like in C).
 
 Prototype: def replace_in_list(my_list, idx, element):
@@ -33,7 +33,7 @@ You are not allowed to use try/except
 
 
 3. Print a list of integers... in reverse!
-mandatory
+
 Write a function that prints all integers of a list, in reverse order.
 
 Prototype: def print_reversed_list_integer(my_list=[]):
@@ -45,7 +45,7 @@ You have to use str.format() to print integers
 
 
 4. Replace in a copy
-mandatory
+
 Write a function that replaces an element in a list at a specific position without modifying the original list (like in C).
 
 Prototype: def new_in_list(my_list, idx, element):
@@ -56,7 +56,7 @@ You are not allowed to use try/except
 
 
 5. Can you C me now?
-mandatory
+
 Write a function that removes all characters c and C from a string.
 
 Prototype: def no_c(my_string):
@@ -66,7 +66,7 @@ You are not allowed to use str.replace()
 
 
 6. Lists of lists = Matrix
-mandatory
+
 Write a function that prints a matrix of integers.
 
 Prototype: def print_matrix_integer(matrix=[[]]):
@@ -78,7 +78,7 @@ You have to use str.format() to print integers
 
 
 7. Tuples addition
-mandatory
+
 Write a function that adds 2 tuples.
 
 Prototype: def add_tuple(tuple_a=(), tuple_b=()):
@@ -92,7 +92,7 @@ If a tuple is bigger than 2, use only the first 2 integers
 
 
 8. More returns!
-mandatory
+
 Write a function that returns a tuple with the length of a string and its first character.
 
 Prototype: def multiple_returns(sentence):
@@ -101,7 +101,7 @@ You are not allowed to import any module
 
 
 9. Find the max
-mandatory
+
 Write a function that finds the biggest integer of a list.
 
 Prototype: def max_integer(my_list=[]):
@@ -112,7 +112,7 @@ You are not allowed to use the builtin max()
 
 
 10. Only by 2
-mandatory
+
 Write a function that finds all multiples of 2 in a list.
 
 Prototype: def divisible_by_2(my_list=[]):
@@ -122,7 +122,7 @@ You are not allowed to import any module
 
 
 11. Delete at
-mandatory
+
 Write a function that deletes the item at a specific position in a list.
 
 Prototype: def delete_at(my_list=[], idx=0):
@@ -131,7 +131,7 @@ You are not allowed to use pop()
 You are not allowed to import any module
 
 12. Switch
-mandatory
+
 Complete the source code in order to switch value of a and b
 
 You can find the source code here
@@ -140,7 +140,7 @@ Your program should be exactly 5 lines long
 
 
 13. Linked list palindrome
-mandatory
+
 Technical interview preparation:
 
 You are not allowed to google anything
