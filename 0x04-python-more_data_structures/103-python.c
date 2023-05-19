@@ -4,11 +4,10 @@ void print_python_list(PyObject *p);
 void print_python_bytes(PyObject *p);
 
 /**
- * print_python_list -  Entry Point
+ * print_python_list - Entry Point
  * Description: Prints basic info about Python lists.
- * @p: A PyObject list.
+ * @p: A PyObject list object.
  */
-
 void print_python_list(PyObject *p)
 {
 	int size, alloc, j;
@@ -18,12 +17,12 @@ void print_python_list(PyObject *p)
 
 	size = var->ob_size;
 	alloc = list->allocated;
-	
+
 	printf("[*] Python list info\n");
 	printf("[*] Size of the Python List = %d\n", size);
 	printf("[*] Allocated = %d\n", alloc);
-	
-	for (j = 0; j < size; i++)
+
+	for (j = 0; j < size; j++)
 	{
 		type = list->ob_item[j]->ob_type->tp_name;
 		printf("Element %d: %s\n", j, type);
@@ -32,6 +31,11 @@ void print_python_list(PyObject *p)
 	}
 }
 
+/**
+ * print_python_bytes - Entry Point
+ * Description: Prints basic info about Python byte objects.
+ * @p: A PyObject byte object.
+ */
 void print_python_bytes(PyObject *p)
 {
 	unsigned char j, size;
