@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <Python.h>
 
 /**
@@ -9,53 +8,54 @@
 
 void print_python_list(PyObject *p)
 {
-	int_size_t size;
-	int_size_t i;
+	int size, alloc, j;
+	const char *type;
+	PyListObject *list = (PyListObject *)p;
+	PyVarObject *var = (PyVarObject *)p;
+
+	size = var->ob_size;
+	alloc = list->allocated;
 	
-	if (!PyList_Check(p))
-	{
-		printf("Invalid Python list object.\n");
-		return;
-	}
-	
-	size = PyList_Size(p);
 	printf("[*] Python list info\n");
-	printf("[*] Size of the Python List = %ld\n", size);
-	printf("[*] Allocated = %ld\n", ((PyListObject *)p)->allocated);
+	printf("[*] Size of the Python List = %d\n", size);
+	printf("[*] Allocated = %d\n", alloc);
 	
 	for (i = 0; i < size; i++)
 	{
-		printf("Element %ld: %s\n", i, Py_TYPE(PyList_GetItem(p, i))->tp_name);
+		type = list->ob_item[j]->ob_type->tp_name;
+		printf("Element %d: %s\n", j, type);
+		if (strcmp(type, "bytes") == 0)
+			print_python_bytes(list->ob_item[j]);
 	}
 }
 
 void print_python_bytes(PyObject *p)
 {
-	int_size_t size;
-	int_size_t i;
-	char *bytes;
-	PyObject *byte_obj;
-	
-	if (!PyBytes_Check(p))
+	unsigned char j, size;
+	PyBytesObject *bytes = (PyBytesObject *)p;
+
+	printf("[.] bytes object info\n");
+	if (strcmp(p->ob_type->tp_name, "bytes") != 0)
 	{
-		printf("Invalid Python bytes object.\n");
+		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
-	
-	size = PyBytes_Size(p);
-	bytes = PyBytes_AsString(p);
-	
-	printf("[.] bytes object info\n");
-	printf("size: %ld\n", size);
-	printf("trying string: %s\n", bytes);
-	
-	printf("first %ld bytes: ", (size + 1 < 10 ? size + 1 : 10));
-	for (i = 0; i < size + 1 && i < 10; i++)
+
+	printf("  size: %ld\n", ((PyVarObject *)p)->ob_size);
+	printf("  trying string: %s\n", bytes->ob_sval);
+
+	if (((PyVarObject *)p)->ob_size > 10)
+		size = 10;
+	else
+		size = ((PyVarObject *)p)->ob_size + 1;
+
+	printf("  first %d bytes: ", size);
+	for (i = 0; j < size; j++)
 	{
-		byte_obj = PyList_GetItem(p, i);
-		printf("%02hhx", PyLong_AsLong(byte_obj));
-		if (i + 1 < size + 1 && i + 1 < 10)
+		printf("%02hhx", bytes->ob_sval[j]);
+		if (j == (size - 1))
+			printf("\n");
+		else
 			printf(" ");
 	}
-	printf("\n");
 }
