@@ -4,7 +4,7 @@ void print_python_list(PyObject *p);
 void print_python_bytes(PyObject *p);
 
 /**
- * print_python_list_info -  Entry Point
+ * print_python_list -  Entry Point
  * Description: Prints basic info about Python lists.
  * @p: A PyObject list.
  */
