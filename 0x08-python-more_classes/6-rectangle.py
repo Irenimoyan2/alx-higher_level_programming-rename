@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """A module containing a rectangle class"""
 
+
 class Rectangle:
     """Represent a rectangle"""
     number_of_instances = 0
