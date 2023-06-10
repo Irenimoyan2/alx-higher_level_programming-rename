@@ -1,103 +1,109 @@
-The module ``5-text_indentation.py``
-
-===================================
-
-Import:
-
->>> text_indentation = __import__('5-text_indentation').text_indentation
-
-
-Testing:
-
->>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
-... Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
-... Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: \
-... Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. \
-... Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum \
-... rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo \
-... stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum \
-... cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio \
-... beatiorem! Iam ruinas videres""")
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-
-Quonam modo?
-
-
-Utrum igitur tibi litteram videor an totas paginas commovere?
-
-
-Non autem hoc:
-
-
-igitur ne illud quidem.
-
-
-Fortasse id optimum, sed ubi illud:
-
-
-Plus semper voluptatis?
-
-
-Teneo, inquit, finem illi videri nihil dolere.
-
-
-Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.
-
-
-Si id dicis, vicimus.
-
-
-Inde sermone vario sex illa a Dipylo stadia confecimus.
-
-
-Sin aliud quid voles, postea.
-
-
-Quae animi affectio suum cuique tribuens atque hanc, quam dico.
-
-
->>> text_indentation("""Hi There""")
-
->>> text_indentation("""Hi There.""")
-Hi There.
-
-
-
->>> text_indentation("Hi There.")
-Hi There.
-
-
-
->>> text_indentation("")
-
->>> text_indentation(234)
-Traceback (most recent call last):
-...
-TypeError: text must be a string
-
->>> text_indentation(["234"])
-Traceback (most recent call last):
-...
-TypeError: text must be a string
-
->>> text_indentation("?dafsvfdg.")
+Test all delimeter with spaces at ends:
+>>> text_indentation("Hello   :     Holberton    ?    school.    fooo     ")
+Hello:
+<BLANKLINE>
+Holberton?
+<BLANKLINE>
+school.
+<BLANKLINE>
+fooo
+Test just delimeter:
+>>> text_indentation(".?:")
+.
+<BLANKLINE>
 ?
-
-
-dafsvfdg.
-
-
->>> text_indentation(".ewrfsd")
+<BLANKLINE>
+:
+<BLANKLINE>
+Test string with the spaces:
+>>> text_indentation("    Holberton")
+Holberton
+Test just delimeters:
+>>> text_indentation("  ?  ")
+?
+<BLANKLINE>
+Test nonindent inside indent
+>>> text_indentation("?Hello.")
+?
+<BLANKLINE>
+Hello.
+<BLANKLINE>
+Test existing newline:
+>>> text_indentation("?\n\n.\n\n:")
+?
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
 .
-
-ewrfsd
-
-
->>> text_indentation(".ewrfsd..")
-.
-
-ewrfsd.
-
-.
-
+<BLANKLINE>
+<BLANKLINE>
+<BLANKLINE>
+:
+<BLANKLINE>
+Test none:
+>>> text_indentation(None)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+Test num:
+>>> text_indentation(33)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+Test string with some spaces:
+>>> text_indentation("        Holberton          ")
+Holberton
+Test string with an empty string:
+>>> text_indentation("")
+Test string with an empty string (2):
+>>> text_indentation("      ")
+Test:
+>>> text_indentation("Hello: Holberton")
+Hello:
+<BLANKLINE>
+Holberton
+Test delimeters with spaces:
+>>> text_indentation("      ?:  :  ")
+?
+<BLANKLINE>
+:
+<BLANKLINE>
+:
+<BLANKLINE>
+Test newline:
+>>> text_indentation("\n")
+<BLANKLINE>
+Test newlines:
+>>> text_indentation("\n\n")
+<BLANKLINE>
+<BLANKLINE>
+Test newline 3:
+>>> text_indentation("Hello\n\n")
+Hello
+<BLANKLINE>
+Import module:
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+Test no delimeters:
+>>> text_indentation("Hello Holberton")
+Hello Holberton
+Test string with spaces:
+>>> text_indentation("Holberton    ")
+Holberton
+Test all delimeters!:
+>>> text_indentation("Hello: Holberton? school. fooo")
+Hello:
+<BLANKLINE>
+Holberton?
+<BLANKLINE>
+school.
+<BLANKLINE>
+fooo
+Test all delimeters with some spaces:
+>>> text_indentation("Hello   :   Holberton  ?  school.  fooo")
+Hello:
+<BLANKLINE>
+Holberton?
+<BLANKLINE>
+school.
+<BLANKLINE>
+fooo
