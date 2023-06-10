@@ -11,9 +11,6 @@ def text_indentation(text):
     if type(text) is not str:
         raise TypeError("text must be a string")
 
-    delimiters = ['.', '?', ':']
-    length = len(text)
-
     c = 0
     while c < len(text) and text[c] == ' ':
         c += 1
