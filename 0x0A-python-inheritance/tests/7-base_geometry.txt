@@ -1,0 +1,155 @@
+test for ``7-base_geometry.py``
+
+===============================
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>>
+>>> bg = BaseGeometry()
+>>>
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("width", 89)
+>>>
+>>> try:
+...     bg.integer_validator("name", "John")
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+...
+[TypeError] name must be an integer
+
+
+>>> try:
+...     bg.integer_validator("age", 0)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+...
+[ValueError] age must be greater than 0
+
+
+>>> try:
+...     bg.integer_validator("distance", -4)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+...
+[ValueError] distance must be greater than 0
+
+
+>>> bg.area()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/vagrant/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 15, in area
+    raise Exception("area() is not implemented")
+Exception: area() is not implemented
+
+
+>>> bg.integer_validator(123, 12)
+>>> try:
+...     bg.integer_validator(123, 12)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+...
+
+>>> bg.integer_validator([123, 0], 12)
+>>> bg.integer_validator("height", 1.2343)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/vagrant/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 22, in integer_validator
+    raise TypeError("{} must be an integer".format(name))
+TypeError: height must be an integer
+
+
+>>> bg.integer_validator(dwascsd, 1.2343)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'dwascsd' is not defined
+
+
+>>> bg.integer_validator([p], 1.2343)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'p' is not defined
+
+
+>>> bg.integer_validator([123], 1.2343)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/vagrant/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 22, in integer_validator
+    raise TypeError("{} must be an integer".format(name))
+TypeError: [123] must be an integer
+
+
+>>> bg.integer_validator(0.123, 1.2343)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/vagrant/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 22, in integer_validator
+    raise TypeError("{} must be an integer".format(name))
+TypeError: 0.123 must be an integer
+
+
+>>> bg.integer_validator(0, 1.2343)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/vagrant/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 22, in integer_validator
+    raise TypeError("{} must be an integer".format(name))
+TypeError: 0 must be an integer
+
+
+>>> bg.integer_validator("e32frwe", 0.567)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/vagrant/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 22, in integer_validator
+    raise TypeError("{} must be an integer".format(name))
+TypeError: e32frwe must be an integer
+
+
+>>> bg.integer_validator(", -09")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+
+>>> bg.integer_validator("-09")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+
+>>> obj = BaseGeometry(0)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: BaseGeometry() takes no arguments
+
+
+>>> obj = BaseGeometry()
+>>> obj.name = "Habeeb"
+>>> bg.integer_validator(obj.name, 32)
+>>> bg.integer_validator(obj.name, das)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'das' is not defined
+
+
+>>> bg.integer_validator(obj.name, "ac")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/vagrant/alx-higher_level_programming/0x0A-python-inheritance/7-base_geometry.py", line 22, in integer_validator
+    raise TypeError("{} must be an integer".format(name))
+TypeError: Habeeb must be an integer
+
+>>> bg.integer_validator("", 90)
+
+>>> g = __import__("7-base_geometry").__doc__
+>>> len(g) > 1
+True
+>>> g = __import__("7-base_geometry").BaseGeometry.__doc__
+>>> len(g) > 1
+True
+>>> g = __import__("7-base_geometry").BaseGeometry.area.__doc__
+>>> len(g) > 1
+True
+>>> g = __import__("7-base_geometry").BaseGeometry.__init__.__doc__
+>>> len(g) > 1
+True
+
+>>> g = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+>>> len(g) > 1
+True
