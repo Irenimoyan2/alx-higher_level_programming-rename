@@ -6,10 +6,8 @@ Contains one module
 
 def inherits_from(obj, a_class):
     """
-    Function thats checks if instance is True or False
+    Function thats checks for instance and subclass
     """
-    if issubclass(obj.__class__, a_class):
-        if obj.__class__ is not a_class:
-            return True
-
-        return False
+    if isintance(obj, a_class) and not type(obj) is a_class:
+        return True
+    return False
